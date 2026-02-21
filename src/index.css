@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  /* 기존 애니메이션 유지 */
+  --animate-spin-slow: spin 4s linear infinite;
+  --animate-pulse-glow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  
+  /* [새로 추가] 강렬한 펄스 애니메이션 (1.5초 주기) */
+  --animate-intense-pulse: intense-pulse 1.5s ease-in-out infinite;
+}
+
+/* ... 기존 fadeIn, text-glow-white 유지 ... */
+
+/* [새로 추가] 강렬하게 심장이 뛰는 듯한 키프레임 정의 */
+@keyframes intense-pulse {
+  0%, 100% {
+    transform: scale(1);
+    /* 기본 상태: 은은한 빛 */
+    box-shadow: 0 0 10px rgba(92, 86, 214, 0.7);
+  }
+  50% {
+    transform: scale(1.4); /* 크기가 1.4배 커짐 */
+    /* 가장 커졌을 때: 빛이 강하게 번짐 (그림자 겹침) */
+    box-shadow: 0 0 25px rgba(92, 86, 214, 1), 0 0 50px rgba(92, 86, 214, 0.6);
+  }
+}
